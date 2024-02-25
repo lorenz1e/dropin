@@ -19,7 +19,7 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  function signup(email, password, displayName) {
+  function signup(email, password) {
     return createUserWithEmailAndPassword(FIREBASE_AUTH, email, password)
   }
 
@@ -29,10 +29,6 @@ export function AuthProvider({ children }) {
 
   function signout() {
     return signOut(FIREBASE_AUTH);
-  }
-
-  function updateDisplayName(displayName) {
-    updateProfile(FIREBASE_AUTH.currentUser, { displayName: {displayName} });
   }
 
   useEffect(() => {
